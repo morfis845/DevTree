@@ -110,6 +110,12 @@ npm run dev
 # Desarrollo con Nodemon
 npm run dev:nodemon
 
+# Build
+npm run build
+
+# Start
+npm start
+
 # Tests (próximamente)
 npm test
 ```
