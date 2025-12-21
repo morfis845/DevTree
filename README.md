@@ -5,6 +5,7 @@
 ### _Tu Linktree, pero para Desarrolladores_
 
 [![Node.js](https://img.shields.io/badge/Node.js-20+-339933?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Express](https://img.shields.io/badge/Express-5.2-000000?style=for-the-badge&logo=express&logoColor=white)](https://expressjs.com/)
 [![License](https://img.shields.io/badge/License-ISC-blue?style=for-the-badge)](LICENSE)
 
@@ -51,11 +52,11 @@ Como desarrolladores, necesitamos un lugar centralizado para mostrar nuestro tra
 
 <div align="center">
 
-| Tecnología                                                                                               | Versión    | Propósito             |
-| -------------------------------------------------------------------------------------------------------- | ---------- | --------------------- |
-| ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)          | 20+        | Runtime de JavaScript |
-| ![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)          | 5.2.1      | Framework web         |
-| ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) | ES Modules | Lenguaje              |
+| Tecnología                                                                                               | Versión | Propósito             |
+| -------------------------------------------------------------------------------------------------------- | ------- | --------------------- |
+| ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)          | 20+     | Runtime de JavaScript |
+| ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white) | 5.0+    | Lenguaje              |
+| ![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)          | 5.2.1   | Framework web         |
 
 </div>
 
@@ -119,8 +120,10 @@ npm test
 
 ```
 devtree/
-├── 📄 index.js          # Punto de entrada de la aplicación
+├── � src/
+│   └── 📄 index.ts      # Punto de entrada de la aplicación
 ├── 📦 package.json      # Dependencias y scripts
+├── 📝 tsconfig.json     # Configuración de TypeScript
 ├── 📖 README.md         # Este archivo
 └── 🔧 node_modules/     # Módulos de Node.js
 ```
