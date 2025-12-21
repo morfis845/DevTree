@@ -1,10 +1,4 @@
-import express from "express";
-
-const app = express();
-//Routing
-app.get("/", (req, res) => {
-  res.send("Hello World from Express and Node.js with TypeScript!");
-});
+import app from "./server";
 
 const PORT = process.env.PORT || 4000;
 
