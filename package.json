@@ -1,6 +1,5 @@
 {
   "name": "devtree",
-  "type": "module",
   "version": "0.0.1",
   "description": "Primer Proyecto con Express y Typescript",
   "license": "ISC",
@@ -9,12 +8,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "node --watch index.js",
-    "dev:nodemon": "nodemon index.js"
+    "dev:nodemon": "nodemon src/index.ts"
   },
   "dependencies": {
     "express": "^5.2.1"
   },
   "devDependencies": {
+    "@types/express": "^5.0.6",
     "nodemon": "^3.1.11",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"

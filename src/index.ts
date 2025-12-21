@@ -3,7 +3,7 @@ import express from "express";
 const app = express();
 //Routing
 app.get("/", (req, res) => {
-  res.send("Hello World from Express and Node.js");
+  res.send("Hello World from Express and Node.js with TypeScript!");
 });
 
 const PORT = process.env.PORT || 4000;
