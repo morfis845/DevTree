@@ -183,17 +183,9 @@ devtree/
 │   └── 📁 utils/
 │       └── 📄 logger.ts      # Utilidades de logging
 ├── 📦 package.json           # Dependencias y scripts
-
-- [x] Integración con MongoDB/Mongoose
-- [x] Modelo de usuario
-- [x] Endpoint de registro de usuarios
-- [ ] Validación de datos
-- [ ] Hash de contraseñas (bcrypt)
-- [ ] Autenticación con JWT
-- [ ] Login de usuarios
-- [ ] Panel de administración
-- [ ] Gestión de enlaces
-- [ ] Personalización de perfil # Este archivo
+├── 📄 tsconfig.json          # Configuración de TypeScript
+├── 📄 .env.example           # Ejemplo de variables de entorno
+└── 📄 README.md              # Documentación del proyecto
 ```
 
 ---
@@ -210,6 +202,16 @@ devtree/
 - [ ] Vista previa en tiempo real
 - [ ] Modo oscuro / claro
 - [ ] Exportar datos
+- [x] Integración con MongoDB/Mongoose
+- [x] Modelo de usuario
+- [x] Endpoint de registro de usuarios
+- [ ] Validación de datos
+- [ ] Hash de contraseñas (bcrypt)
+- [ ] Autenticación con JWT
+- [ ] Login de usuarios
+- [ ] Panel de administración
+- [ ] Gestión de enlaces
+- [ ] Personalización de perfil # Este archivo
 
 ---
 
