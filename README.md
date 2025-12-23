@@ -55,8 +55,10 @@ Como desarrolladores, necesitamos un lugar centralizado para mostrar nuestro tra
 | Tecnología                                                                                               | Versión | Propósito             |
 | -------------------------------------------------------------------------------------------------------- | ------- | --------------------- |
 | ![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=node.js&logoColor=white)          | 20+     | Runtime de JavaScript |
-| ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white) | 5.0+    | Lenguaje              |
+| ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white) | 5.9+    | Lenguaje              |
 | ![Express](https://img.shields.io/badge/Express-000000?style=flat&logo=express&logoColor=white)          | 5.2.1   | Framework web         |
+| ![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat&logo=mongodb&logoColor=white)          | 9.0+    | Base de datos         |
+| ![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=flat&logo=mongoose&logoColor=white)       | 9.0.2   | ODM para MongoDB      |
 
 </div>
 
@@ -70,6 +72,7 @@ Asegúrate de tener instalado:
 
 - Node.js (v20 o superior)
 - npm o yarn
+- MongoDB (local o Atlas)
 
 ### Pasos
 
@@ -86,13 +89,22 @@ Asegúrate de tener instalado:
    npm install
    ```
 
-3. **Inicia el servidor de desarrollo**
+3. **Configura las variables de entorno**
+
+   Crea un archivo `.env` en la raíz del proyecto:
+
+   ```env
+   PORT=4000
+   MONGO_URI=tu_conexion_mongodb
+   ```
+
+4. **Inicia el servidor de desarrollo**
 
    ```bash
    npm run dev
    ```
 
-4. **Abre tu navegador**
+5. **Abre tu navegador o cliente REST**
    ```
    http://localhost:4000
    ```
@@ -101,7 +113,39 @@ Asegúrate de tener instalado:
 
 ---
 
-## 📦 Scripts Disponibles
+## � API Endpoints
+
+### Autenticación
+
+#### Registrar Usuario
+
+```http
+POST /auth/register
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "securepassword123"
+}
+```
+
+**Respuesta exitosa:**
+
+```json
+{
+  "message": "Usuario registrado exitosamente",
+  "user": {
+    "id": "...",
+    "name": "John Doe",
+    "email": "john@example.com"
+  }
+}
+```
+
+---
+
+## �📦 Scripts Disponibles
 
 ```bash
 # Desarrollo con Node.js watch mode (recomendado)
@@ -127,11 +171,29 @@ npm test
 ```
 devtree/
 ├── � src/
-│   └── 📄 index.ts      # Punto de entrada de la aplicación
-├── 📦 package.json      # Dependencias y scripts
-├── 📝 tsconfig.json     # Configuración de TypeScript
-├── 📖 README.md         # Este archivo
-└── 🔧 node_modules/     # Módulos de Node.js
+│   ├── 📄 index.ts           # Punto de entrada de la aplicación
+│   ├── 📄 server.ts          # Configuración del servidor Express
+│   ├── 📄 router.ts          # Rutas de la API
+│   ├── 📁 config/
+│   │   └── 📄 db.ts          # Configuración de MongoDB
+│   ├── 📁 handlers/
+│   │   └── 📄 index.ts       # Controladores de rutas
+│   ├── 📁 models/
+│   │   └── 📄 User.ts        # Modelo de usuario
+│   └── 📁 utils/
+│       └── 📄 logger.ts      # Utilidades de logging
+├── 📦 package.json           # Dependencias y scripts
+├──x] Integración con MongoDB/Mongoose
+- [x] Modelo de usuario
+- [x] Endpoint de registro de usuarios
+- [ ] Validación de datos
+- [ ] Hash de contraseñas (bcrypt)
+- [ ] Autenticación con JWT
+- [ ] Login de usuarios
+- [ ] Panel de administración
+- [ ] Gestión de enlaces
+- [ ] Personalización de perfil # Este archivo
+└── 🔧 node_modules/          # Módulos de Node.js
 ```
 
 ---
