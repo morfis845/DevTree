@@ -183,7 +183,8 @@ devtree/
 │   └── 📁 utils/
 │       └── 📄 logger.ts      # Utilidades de logging
 ├── 📦 package.json           # Dependencias y scripts
-├──x] Integración con MongoDB/Mongoose
+
+- [x] Integración con MongoDB/Mongoose
 - [x] Modelo de usuario
 - [x] Endpoint de registro de usuarios
 - [ ] Validación de datos
@@ -193,7 +194,6 @@ devtree/
 - [ ] Panel de administración
 - [ ] Gestión de enlaces
 - [ ] Personalización de perfil # Este archivo
-└── 🔧 node_modules/          # Módulos de Node.js
 ```
 
 ---
