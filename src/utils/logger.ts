@@ -1,5 +1,23 @@
+type LogEvent =
+  | "EMAIL_ALREADY_EXISTS"
+  | "USER_ALREADY_EXISTS"
+  | "USER_REGISTERED"
+  | "USER_REGISTER_FAILED";
+
+type LogPayload = {
+  event: LogEvent;
+  [key: string]: unknown;
+};
+
+export const LogEmoji = {
+  SUCCESS: "🎉",
+  WARNING: "⚠️",
+  ERROR: "❌",
+  INFO: "ℹ️",
+};
+
 export const logger = {
-  info: (msg: string) => console.log(`ℹ️ ${msg}`),
-  warn: (msg: string) => console.warn(`⚠️ ${msg}`),
-  error: (msg: string) => console.error(`❌ ${msg}`),
+  warn: (payload: LogPayload) => console.warn(payload),
+  info: (payload: LogPayload) => console.info(payload),
+  error: (payload: LogPayload) => console.error(payload),
 };
