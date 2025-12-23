@@ -1,10 +1,17 @@
-import User from "../models/User";
 import { Request, Response } from "express";
+import { validationResult } from "express-validator";
 import slug from "slug";
 import { logger, LogEmoji } from "../utils/logger";
+import User from "../models/User";
 import { hashPassword } from "../utils/auth";
 
 export const registerUser = async (req: Request, res: Response) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    console.log("Validation errors:");
+    return res.status(400).json({ errors: errors.array() });
+  }
+
   try {
     const { email, password, handle } = req.body;
 
