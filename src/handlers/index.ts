@@ -8,14 +8,14 @@ export const registerUser = async (req: Request, res: Response) => {
   const { email, password } = req.body;
   const userExists = await User.findOne({ email });
   if (userExists) {
-    logger.warn("Intento de registro de usuario existente");
+    logger.warn("Attempt to register existing user");
     return res.status(400).json({ message: "User already exists" });
   }
 
   const handle = slug(req.body.handle, "").toLowerCase();
   const handleExists = await User.findOne({ handle: handle });
   if (handleExists) {
-    logger.warn("Intento de registro con username existente");
+    logger.warn("Attempt to register with existing username");
     return res.status(400).json({ message: "username already exists" });
   }
 
