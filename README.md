@@ -66,50 +66,51 @@ Como desarrolladores, necesitamos un lugar centralizado para mostrar nuestro tra
 
 ## 🚀 Instalación
 
-### Prerequisitos
+Para instalar DevTree, sigue estos pasos:
 
-Asegúrate de tener instalado:
-
-- Node.js (v20 o superior)
-- npm o yarn
-- MongoDB (local o Atlas)
-
-### Pasos
-
-1. **Clona el repositorio**
-
+1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tuusuario/devtree.git
-   cd devtree
+   git clone https://github.com/tu_usuario/DevTree.git
    ```
-
-2. **Instala las dependencias**
-
+2. Navega al directorio del proyecto:
+   ```bash
+   cd DevTree
+   ```
+3. Instala las dependencias:
    ```bash
    npm install
    ```
-
-3. **Configura las variables de entorno**
-
-   Crea un archivo `.env` en la raíz del proyecto:
-
-   ```env
-   PORT=4000
-   MONGO_URI=tu_conexion_mongodb
-   ```
-
-4. **Inicia el servidor de desarrollo**
-
+4. Inicia la aplicación:
    ```bash
-   npm run dev
+   npm start
    ```
 
-5. **Abre tu navegador o cliente REST**
-   ```
-   http://localhost:4000
-   ```
+## Uso
 
-🎉 ¡Listo! Tu DevTree está corriendo localmente.
+Una vez que la aplicación esté en funcionamiento, podrás acceder a ella en `http://localhost:3000`. Puedes personalizar tu perfil y agregar enlaces a tus proyectos, redes sociales y más.
+
+## Contribuciones
+
+Las contribuciones son bienvenidas. Si deseas contribuir, por favor sigue estos pasos:
+
+1. Haz un fork del proyecto.
+2. Crea una nueva rama para tu característica:
+   ```bash
+   git checkout -b mi-nueva-caracteristica
+   ```
+3. Realiza tus cambios y haz commit:
+   ```bash
+   git commit -m 'Agregué una nueva característica'
+   ```
+4. Envía tus cambios:
+   ```bash
+   git push origin mi-nueva-caracteristica
+   ```
+5. Abre un Pull Request.
+
+## Licencia
+
+Este proyecto está bajo la Licencia ISC. Lee el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
 
@@ -193,7 +194,7 @@ devtree/
 ## 🎨 Roadmap
 
 - [x] Configuración inicial del servidor Express
-- [ ] Sistema de autenticación de usuarios
+- [x] Sistema de autenticación de usuarios
 - [ ] Panel de administración
 - [ ] Personalización de temas
 - [ ] Analytics de clics
@@ -205,10 +206,9 @@ devtree/
 - [x] Integración con MongoDB/Mongoose
 - [x] Modelo de usuario
 - [x] Endpoint de registro de usuarios
-- [ ] Validación de datos
-- [ ] Hash de contraseñas (bcrypt)
+- [x] Hash de contraseñas (bcrypt)
 - [ ] Autenticación con JWT
-- [ ] Login de usuarios
+- [x] Login de usuarios
 - [ ] Panel de administración
 - [ ] Gestión de enlaces
 - [ ] Personalización de perfil # Este archivo
