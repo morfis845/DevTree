@@ -8,7 +8,6 @@ import { hashPassword } from "../utils/auth";
 export const registerUser = async (req: Request, res: Response) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    console.log("Validation errors:");
     return res.status(400).json({ errors: errors.array() });
   }
 
