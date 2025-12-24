@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { body } from "express-validator";
-import { registerUser } from "./handlers";
+import { login, registerUser } from "./handlers";
 
 const router = Router();
 
@@ -22,6 +22,13 @@ router.post(
     .withMessage("Password must contain at least one special character"),
   body("email").isEmail().withMessage("Valid email is required"),
   registerUser
+);
+
+router.post(
+  "/auth/login",
+  body("email").isEmail().withMessage("Valid email is required"),
+  body("password").notEmpty().withMessage("Password is required"),
+  login
 );
 
 export default router;
