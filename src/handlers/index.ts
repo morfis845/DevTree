@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { validationResult } from "express-validator";
+import { body } from "express-validator";
 import slug from "slug";
 import { logger, LogEmoji } from "../utils/logger";
 import User from "../models/User";

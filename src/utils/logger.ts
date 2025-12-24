@@ -2,7 +2,9 @@ type LogEvent =
   | "EMAIL_ALREADY_EXISTS"
   | "USER_ALREADY_EXISTS"
   | "USER_REGISTERED"
-  | "USER_REGISTER_FAILED";
+  | "USER_REGISTER_FAILED"
+  | "USER_LOGGED_IN_ACCEPTED"
+  | "USER_LOGGED_IN_FAILED";
 
 type LogPayload = {
   event: LogEvent;
