@@ -4,6 +4,7 @@ import slug from "slug";
 import { logger, LogEmoji } from "../utils/logger";
 import User from "../models/User";
 import { comparePassword, hashPassword } from "../utils/auth";
+import { generateJWT } from "../utils/jwt";
 
 export const registerUser = async (req: Request, res: Response) => {
   try {
@@ -54,6 +55,8 @@ export const login = async (req: Request, res: Response) => {
   if (!(await comparePassword(password, user.password))) {
     return res.status(401).json({ message: "Invalid credentials" });
   }
+
+  generateJWT(user);
 
   res.status(200).json({
     message: "Login successful",
