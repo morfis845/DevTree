@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { body } from "express-validator";
 import { login, registerUser } from "./handlers";
+import { handleInputErrors } from "./middleware/validation";
 
 const router = Router();
 
@@ -21,6 +22,7 @@ router.post(
     .matches(/[!@#$%^&*(),.?":{}|<>]/)
     .withMessage("Password must contain at least one special character"),
   body("email").isEmail().withMessage("Valid email is required"),
+  handleInputErrors,
   registerUser
 );
 
@@ -28,6 +30,7 @@ router.post(
   "/auth/login",
   body("email").isEmail().withMessage("Valid email is required"),
   body("password").notEmpty().withMessage("Password is required"),
+  handleInputErrors,
   login
 );
 
