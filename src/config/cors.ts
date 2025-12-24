@@ -6,7 +6,7 @@ export const corsConfig: CorsOptions = {
     if (!origin) {
       return callback(null, true);
     }
-    if (origin === "http://localhost:5173") {
+    if (origin === process.env.FRONTEND_URL) {
       logger.info({
         event: "USER_LOGGED_IN_ACCEPTED",
         origin,
