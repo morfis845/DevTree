@@ -1,6 +1,4 @@
 import { Request, Response } from "express";
-import jwt from "jsonwebtoken";
-import { body } from "express-validator";
 import slug from "slug";
 import { logger, LogEmoji } from "../utils/logger";
 import User from "../models/User";
@@ -66,24 +64,5 @@ export const login = async (req: Request, res: Response) => {
 };
 
 export const getUser = async (req: Request, res: Response) => {
-  const bearerToken = req.headers.authorization;
-  if (!bearerToken) {
-    return res.status(401).json({ message: "Unauthorized" });
-  }
-  const [, token] = bearerToken.split(" ");
-  if (!token) {
-    return res.status(401).json({ message: "Unauthorized" });
-  }
-  try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    if (typeof decoded === "object" && "id" in decoded) {
-      const user = await User.findById(decoded.id).select("-password");
-      if (!user) {
-        return res.status(404).json({ message: "User not found" });
-      }
-      return res.status(200).json(user);
-    }
-  } catch (error) {
-    return res.status(401).json({ message: "Unauthorized" });
-  }
+  return res.status(200).json(req.user);
 };
