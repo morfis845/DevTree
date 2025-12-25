@@ -107,7 +107,12 @@ export const uploadImage = async (req: Request, res: Response) => {
           return res.status(500).json({ message: "Image upload failed" });
         }
         if (result) {
-          console.log(result.secure_url);
+          req.user.image = result.secure_url;
+          await req.user.save();
+          return res.status(200).json({
+            message: "Image uploaded successfully",
+            image: result.secure_url,
+          });
         }
       }
     );
