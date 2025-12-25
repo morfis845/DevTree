@@ -7,11 +7,11 @@ export const corsConfig: CorsOptions = {
       return callback(null, true);
     }
     if (origin === process.env.FRONTEND_URL) {
-      logger.info({
-        event: "USER_LOGGED_IN_ACCEPTED",
-        origin,
-        emoji: LogEmoji.SUCCESS,
-      });
+      // logger.info({
+      //   event: "USER_LOGGED_IN_ACCEPTED",
+      //   origin,
+      //   emoji: LogEmoji.SUCCESS,
+      // });
       return callback(null, true);
     } else {
       logger.warn({

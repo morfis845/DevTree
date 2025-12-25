@@ -66,3 +66,28 @@ export const login = async (req: Request, res: Response) => {
 export const getUser = async (req: Request, res: Response) => {
   return res.status(200).json(req.user);
 };
+
+export const updateUser = async (req: Request, res: Response) => {
+  try {
+    const { description, handle } = req.body;
+    const normalizedHandle = slug(handle, "").toLowerCase();
+    const handleExists = await User.findOne({ handle: normalizedHandle });
+    if (
+      handleExists &&
+      handleExists._id.toString() !== req.user._id.toString()
+    ) {
+      logger.warn({ event: "USER_ALREADY_EXISTS", emoji: LogEmoji.WARNING });
+      return res.status(400).json({ message: "Username already exists" });
+    }
+
+    req.user.description = description;
+    req.user.handle = normalizedHandle;
+    await req.user.save();
+    return res
+      .status(200)
+      .json({ message: "User updated successfully", user: req.user });
+  } catch (e) {
+    const error = new Error("Not implemented yet");
+    return res.status(501).json({ message: error.message });
+  }
+};
