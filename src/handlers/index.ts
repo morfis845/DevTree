@@ -72,7 +72,7 @@ export const getUser = async (req: Request, res: Response) => {
 
 export const updateUser = async (req: Request, res: Response) => {
   try {
-    const { description, handle } = req.body;
+    const { description, handle, links } = req.body;
     const normalizedHandle = slug(handle, "").toLowerCase();
     const handleExists = await User.findOne({ handle: normalizedHandle });
     if (
@@ -85,6 +85,7 @@ export const updateUser = async (req: Request, res: Response) => {
 
     req.user.description = description;
     req.user.handle = normalizedHandle;
+    req.user.links = links;
     await req.user.save();
     return res
       .status(200)
