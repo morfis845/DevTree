@@ -119,3 +119,19 @@ export const uploadImage = async (req: Request, res: Response) => {
     );
   });
 };
+
+export const getUserByHandler = async (req: Request, res: Response) => {
+  try {
+    const { handle } = req.params;
+    const user = await User.findOne({ handle }).select(
+      "-password -__v -_id -email"
+    );
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+    return res.status(200).json(user);
+  } catch (e) {
+    const error = new Error("Hubo un error");
+    return res.status(501).json({ message: error.message });
+  }
+};
