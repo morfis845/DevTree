@@ -5,6 +5,7 @@ import {
   getUserByHandler,
   login,
   registerUser,
+  searchByHandle,
   updateUser,
   uploadImage,
 } from "./handlers";
@@ -54,5 +55,12 @@ router.patch(
 router.post("/user/image", authenticate, uploadImage);
 
 router.get("/:handle", getUserByHandler);
+
+router.post(
+  "/search",
+  body("handle").notEmpty().withMessage("Handle is required"),
+  handleInputErrors,
+  searchByHandle
+);
 
 export default router;
